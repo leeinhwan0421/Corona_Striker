@@ -20,7 +20,8 @@ public class BazierBullet : MonoBehaviour
     {
         if (time > 1.0f)
         {
-            transform.Translate(moveSpeed * 8.0f * Time.deltaTime * Vector3.up);
+            Effect();
+            Destroy(gameObject);
             return;
         }
 
@@ -41,19 +42,24 @@ public class BazierBullet : MonoBehaviour
     {
         float x, y;
 
-        x = posA * Mathf.Cos(Random.Range(0, 360) * Mathf.Deg2Rad)
-                + origin.x;
-        y = posB * Mathf.Sin(Random.Range(0, 360) * Mathf.Deg2Rad)
-                + origin.y;
+        x = posA * Mathf.Cos(Random.Range(0, 360) * Mathf.Deg2Rad) + origin.x;
+        y = posB * Mathf.Sin(Random.Range(0, 360) * Mathf.Deg2Rad) + origin.y;
         return new Vector2(x, y);
     }
 
     private void Movement()
     {
-        transform.position = new Vector2(BazierMovement(points[0].x, points[1].x, points[2].x, points[3].x),
-                                         BazierMovement(points[0].y, points[1].y, points[2].y, points[3].y));
-    }
+        Vector2 previousPosition = transform.position;
+        Vector2 newPosition = new Vector2(
+            BazierMovement(points[0].x, points[1].x, points[2].x, points[3].x),
+            BazierMovement(points[0].y, points[1].y, points[2].y, points[3].y)
+        );
 
+        transform.position = newPosition;
+
+        Vector2 direction = newPosition - previousPosition;
+        transform.up = direction;
+    }
 
     private float BazierMovement(float a, float b, float c, float d)
     {
