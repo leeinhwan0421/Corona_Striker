@@ -17,7 +17,7 @@ public class Button : MonoBehaviour
         GameObject intro = Instantiate(this.intro, Vector3.zero , Quaternion.identity);
 
         // Wait Animator Change To Intro Object
-        Invoke(nameof(LoadGameScene), intro.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        Invoke(nameof(LoadGameScene), intro.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length / 0.75f);
     }
 
     // LoadScene Func
