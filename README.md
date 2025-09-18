@@ -54,4 +54,4 @@
 | 회복 물약    | ![image](https://github.com/user-attachments/assets/74fc5509-fe0c-414a-b467-5af3c541ab02)     | 나노 로봇의 체력 지수를 20 높여준다.     |
 
 # 시연 영상
-[YouTube 링크](https://www.youtube.com/watch?v=PHmythXdy-I&t=28s)
+[YouTube 링크](https://www.youtube.com/watch?v=PHmythXdy-I)
